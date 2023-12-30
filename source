@@ -1,0 +1,371 @@
+-- Gui to Lua
+-- Version: 3.2
+
+-- Instances:
+
+local Template = Instance.new("ScreenGui")
+local Frame = Instance.new("Frame")
+local Main = Instance.new("Frame")
+local Name = Instance.new("TextLabel")
+local Field = Instance.new("TextBox")
+local Exe = Instance.new("TextButton")
+local Hide = Instance.new("TextButton")
+local Cle = Instance.new("TextButton")
+local R6 = Instance.new("TextButton")
+local ImageLabel = Instance.new("ImageLabel")
+
+--Properties:
+
+Template.Name = "Template"
+Template.Parent = game.Players.LocalPlayer:WaitForChild("PlayerGui")
+Template.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
+
+Frame.Parent = Template
+Frame.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Frame.BorderColor3 = Color3.fromRGB(0, 0, 0)
+Frame.BorderSizePixel = 0
+Frame.Position = UDim2.new(0.103535354, 0, 0.250433713, 0)
+Frame.Size = UDim2.new(0, 406, 0, 237)
+
+Main.Name = "Main"
+Main.Parent = Frame
+Main.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Main.BorderColor3 = Color3.fromRGB(27, 42, 53)
+Main.BorderSizePixel = 3
+Main.Position = UDim2.new(-0.00459101656, 0, -0.00273080822, 0)
+Main.Size = UDim2.new(0, 407, 0, 239)
+
+Name.Name = "Name"
+Name.Parent = Main
+Name.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Name.BackgroundTransparency = 1.000
+Name.BorderSizePixel = 0
+Name.Position = UDim2.new(0.0810810775, 0, 0.0334728025, 0)
+Name.Size = UDim2.new(0, 286, 0, 41)
+Name.Font = Enum.Font.Cartoon
+Name.Text = "Team Peru ServerSided"
+Name.TextColor3 = Color3.fromRGB(0, 0, 0)
+Name.TextScaled = true
+Name.TextSize = 20.000
+Name.TextWrapped = true
+
+Field.Name = "Field"
+Field.Parent = Main
+Field.BackgroundColor3 = Color3.fromRGB(181, 181, 181)
+Field.BorderSizePixel = 0
+Field.ClipsDescendants = true
+Field.Position = UDim2.new(0, 10, 0, 58)
+Field.Size = UDim2.new(0, 387, 0, 143)
+Field.Font = Enum.Font.SourceSansBold
+Field.MultiLine = true
+Field.PlaceholderColor3 = Color3.fromRGB(136, 136, 136)
+Field.PlaceholderText = "PUT YOUR SCRIPT HERE"
+Field.Text = ""
+Field.TextColor3 = Color3.fromRGB(0, 0, 0)
+Field.TextSize = 20.000
+Field.TextWrapped = true
+Field.TextXAlignment = Enum.TextXAlignment.Left
+Field.TextYAlignment = Enum.TextYAlignment.Top
+
+Exe.Name = "Exe"
+Exe.Parent = Main
+Exe.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Exe.Position = UDim2.new(0, 0, 0, 210)
+Exe.Size = UDim2.new(0, 126, 0, 28)
+Exe.Font = Enum.Font.SourceSans
+Exe.Text = "Execute"
+Exe.TextColor3 = Color3.fromRGB(0, 0, 0)
+Exe.TextScaled = true
+Exe.TextSize = 14.000
+Exe.TextWrapped = true
+
+Hide.Name = "Hide"
+Hide.Parent = Main
+Hide.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Hide.Position = UDim2.new(0, 241, 0, 210)
+Hide.Size = UDim2.new(0, 101, 0, 28)
+Hide.Font = Enum.Font.SourceSans
+Hide.Text = "Hide"
+Hide.TextColor3 = Color3.fromRGB(0, 0, 0)
+Hide.TextScaled = true
+Hide.TextSize = 14.000
+Hide.TextWrapped = true
+
+Cle.Name = "Cle"
+Cle.Parent = Main
+Cle.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+Cle.Position = UDim2.new(0, 125, 0, 210)
+Cle.Size = UDim2.new(0, 116, 0, 28)
+Cle.Font = Enum.Font.SourceSans
+Cle.Text = "Clear"
+Cle.TextColor3 = Color3.fromRGB(0, 0, 0)
+Cle.TextScaled = true
+Cle.TextSize = 14.000
+Cle.TextWrapped = true
+
+R6.Name = "R6"
+R6.Parent = Main
+R6.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+R6.Position = UDim2.new(0, 342, 0, 210)
+R6.Size = UDim2.new(0, 65, 0, 28)
+R6.Font = Enum.Font.SourceSans
+R6.Text = "R6"
+R6.TextColor3 = Color3.fromRGB(0, 0, 0)
+R6.TextScaled = true
+R6.TextSize = 14.000
+R6.TextWrapped = true
+
+ImageLabel.Parent = Main
+ImageLabel.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+ImageLabel.BorderColor3 = Color3.fromRGB(0, 0, 0)
+ImageLabel.BorderSizePixel = 0
+ImageLabel.Position = UDim2.new(0.794355392, 0, 0, 0)
+ImageLabel.Size = UDim2.new(0, 58, 0, 58)
+ImageLabel.Image = "http://www.roblox.com/asset/?id=15719313761"
+
+-- Module Scripts:
+
+local fake_module_scripts = {}
+
+do -- R6.R6
+	local script = Instance.new('ModuleScript', R6)
+	script.Name = "R6"
+	local function module_script()
+		local R6Converter = {}
+		function R6Converter.load(Plr)
+		Plr = game.Players:WaitForChild(Plr)
+		local FalseChar = script:WaitForChild("DefaultCharacter"):Clone()
+		local PlayersCharacter = game.Players:GetCharacterAppearanceAsync(Plr.UserId):Clone()
+		local FaceID = (Plr.Character:WaitForChild("Head"):FindFirstChild("face") or {Texture = "http://www.roblox.com/asset/?id=144080495"}).Texture
+		local Accessories = {}
+		FalseChar:WaitForChild("Head"):WaitForChild("face").Texture = FaceID
+		FalseChar:SetPrimaryPartCFrame(Plr.Character:WaitForChild("HumanoidRootPart").CFrame)
+		for _,Prt in pairs(PlayersCharacter:GetDescendants()) do
+		if Prt:IsA("Accessory") or Prt:IsA("Hat") or Prt:IsA("BodyColors") or Prt:IsA("CharacterMesh")or Prt:IsA("Pants") or Prt:IsA("Shirt") or Prt:IsA("ShirtGraphic") or Prt:IsA("Tool") then
+		table.insert(Accessories,Prt:Clone())
+		end
+		end
+		
+		for _,Prt in pairs(Plr.Character:GetChildren()) do
+		Prt:Destroy()
+		end
+		for _,Prt in pairs(FalseChar:GetChildren()) do
+		Prt.Parent = Plr.Character
+		end
+		for _,Prt in pairs(Accessories) do
+		Prt.Parent = Plr.Character
+		end
+		
+		
+		end
+		
+		return R6Converter
+		
+	end
+	fake_module_scripts[script] = module_script
+end
+
+
+-- Scripts:
+
+local function JHRNJQU_fake_script() -- Exe.LocalScript 
+	local script = Instance.new('LocalScript', Exe)
+	local req = require
+	local require = function(obj)
+		local fake = fake_module_scripts[obj]
+		if fake then
+			return fake()
+		end
+		return req(obj)
+	end
+
+	local RS = script.Parent.RemoteEvent
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		RS:FireServer(script.Parent.Parent.frame1.TextBox.Text)
+	end)
+end
+coroutine.wrap(JHRNJQU_fake_script)()
+local function EKYMD_fake_script() -- Exe.Script 
+	local script = Instance.new('Script', Exe)
+	local req = require
+	local require = function(obj)
+		local fake = fake_module_scripts[obj]
+		if fake then
+			return fake()
+		end
+		return req(obj)
+	end
+
+	local sss = script.Parent.RemoteEvent
+	
+	sss.OnServerEvent:Connect(function)
+end
+coroutine.wrap(EKYMD_fake_script)()
+local function DRXAYCW_fake_script() -- Hide.LocalScript 
+	local script = Instance.new('LocalScript', Hide)
+	local req = require
+	local require = function(obj)
+		local fake = fake_module_scripts[obj]
+		if fake then
+			return fake()
+		end
+		return req(obj)
+	end
+
+	local text = script.Parent.Parent.Field
+	local hidden = false
+	script.Parent.MouseButton1Click:Connect(function()
+	if hidden == false then
+	
+	
+			text.TextTransparency = 0.1
+			wait()
+			text.TextTransparency = 0.2
+			wait()
+			text.TextTransparency = 0.3
+			wait()
+			text.TextTransparency = 0.4
+			wait()
+			text.TextTransparency = 0.5
+			wait()
+			text.TextTransparency = 0.6
+			wait()
+			text.TextTransparency = 0.7
+			wait()
+			text.TextTransparency = 0.8
+			wait()
+			text.TextTransparency = 0.9
+			wait()
+			text.TextTransparency = 1
+		hidden = true
+	else
+		hidden = false
+			text.TextTransparency = 0.9
+			wait()
+			text.TextTransparency = 0.8
+			wait()
+			text.TextTransparency = 0.7
+			wait()
+			text.TextTransparency = 0.6
+			wait()
+			text.TextTransparency = 0.5
+			wait()
+			text.TextTransparency = 0.4
+			wait()
+			text.TextTransparency = 0.3
+			wait()
+			text.TextTransparency = 0.2
+			wait()
+			text.TextTransparency = 0.1
+			wait()
+			text.TextTransparency = 0
+	end	
+	end)
+	
+end
+coroutine.wrap(DRXAYCW_fake_script)()
+local function LYWVD_fake_script() -- Cle.LocalScript 
+	local script = Instance.new('LocalScript', Cle)
+	local req = require
+	local require = function(obj)
+		local fake = fake_module_scripts[obj]
+		if fake then
+			return fake()
+		end
+		return req(obj)
+	end
+
+	local text = script.Parent.Parent.Field
+	
+	script.Parent.MouseButton1Click:Connect(function()
+		text.Text = "Cleared!"
+		wait(1)
+		text.Text = "PUT YOUR SCRIPT HERE"
+	end)
+end
+coroutine.wrap(LYWVD_fake_script)()
+local function KQEL_fake_script() -- R6.LocalScript 
+	local script = Instance.new('LocalScript', R6)
+	local req = require
+	local require = function(obj)
+		local fake = fake_module_scripts[obj]
+		if fake then
+			return fake()
+		end
+		return req(obj)
+	end
+
+	script.Parent.MouseButton1Click:Connect(function()
+	script.RemoteEvent:FireServer()
+	end)
+end
+coroutine.wrap(KQEL_fake_script)()
+local function SYRJZF_fake_script() -- nil.Script 
+	local script = Instance.new('Script', nil)
+	local req = require
+	local require = function(obj)
+		local fake = fake_module_scripts[obj]
+		if fake then
+			return fake()
+		end
+		return req(obj)
+	end
+
+	script.Parent.RemoteEvent.OnServerEvent:Connect(function(player)
+	require(script.Parent.Parent.R6).load(player.Name)
+	end)
+end
+coroutine.wrap(SYRJZF_fake_script)()
+local function XMZUOW_fake_script() -- Frame.SmoothDrag 
+	local script = Instance.new('LocalScript', Frame)
+	local req = require
+	local require = function(obj)
+		local fake = fake_module_scripts[obj]
+		if fake then
+			return fake()
+		end
+		return req(obj)
+	end
+
+	local Drag = script.Parent
+	gsCoreGui = game:GetService("CoreGui")
+	gsTween = game:GetService("TweenService")
+	local UserInputService = game:GetService("UserInputService")
+		local dragging
+		local dragInput
+		local dragStart
+		local startPos
+		local function update(input)
+			local delta = input.Position - dragStart
+			local dragTime = 0.04
+			local SmoothDrag = {}
+			SmoothDrag.Position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X, startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+			local dragSmoothFunction = gsTween:Create(Drag, TweenInfo.new(dragTime, Enum.EasingStyle.Sine, Enum.EasingDirection.InOut), SmoothDrag)
+			dragSmoothFunction:Play()
+		end
+		Drag.InputBegan:Connect(function(input)
+			if input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch then
+				dragging = true
+				dragStart = input.Position
+				startPos = Drag.Position
+				input.Changed:Connect(function()
+					if input.UserInputState == Enum.UserInputState.End then
+						dragging = false
+					end
+				end)
+			end
+		end)
+		Drag.InputChanged:Connect(function(input)
+			if input.UserInputType == Enum.UserInputType.MouseMovement or input.UserInputType == Enum.UserInputType.Touch then
+				dragInput = input
+			end
+		end)
+		UserInputService.InputChanged:Connect(function(input)
+			if input == dragInput and dragging and Drag.Size then
+				update(input)
+			end
+		end)
+	
+end
+coroutine.wrap(XMZUOW_fake_script)()
